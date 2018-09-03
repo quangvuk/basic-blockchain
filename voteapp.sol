@@ -30,13 +30,15 @@ contract Vote {
     }
     
     function getWinner() view public returns(uint){
-        uint totalvote=0;
-        uint index=1;
+        uint maxvote=0;
+        uint index=0;
+        //Same votes
+        //uint count=0;
         for(uint i=1; i<=ID; i++){
-            if (votes[i] > totalvote) {
-                totalvote = votes[i];
+            if (votes[i] > maxvote) {
+                maxvote = votes[i];
                 index = i;
-            }
+            } 
         }
         
         return index;
